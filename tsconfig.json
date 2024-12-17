@@ -3,7 +3,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "module": "commonjs",
-    "target": "es2024",
+    "target": "ES2024",
     "strict": true
   },
   "include": ["src/**/*"],

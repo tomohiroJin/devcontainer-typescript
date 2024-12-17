@@ -1,4 +1,4 @@
-import { add } from ".";
+import { add } from "./index";
 
 test("add function", () => {
   expect(add(2, 3)).toBe(5);
