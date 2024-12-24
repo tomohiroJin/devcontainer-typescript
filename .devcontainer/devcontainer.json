@@ -24,7 +24,12 @@
         "idered.npm",
         "esbenp.prettier-vscode",
         "rvest.vs-code-prettier-eslint"
-      ]
+      ],
+      "settings": {
+        "jestrunner.configPath": "./jest.config.js", // Jest 設定ファイルのパス
+        "jestrunner.jestCommand": "npm run test --", // Jest のコマンド
+        "jestrunner.codeLens": ["run", "watch", "coverage", "debug"]
+      }
     }
   },
 
