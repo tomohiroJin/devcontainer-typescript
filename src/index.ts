@@ -1,14 +1,12 @@
 const _isCorrectOrder = (pageNumbers: number[], rule: number[]): boolean => {
-  const findIndex = (ruleNumber: number) =>
+  const _findPageIndex = (ruleNumber: number) =>
     pageNumbers.findIndex((n) => n === rule[ruleNumber]);
-  const secondIndex = findIndex(1);
-  if (secondIndex < 0) return true;
-  return pageNumbers.findIndex((n) => n === rule[0]) <= secondIndex;
+  const _notPageInRule = () => _findPageIndex(1) < 0;
+
+  return _notPageInRule() ? true : _findPageIndex(0) <= _findPageIndex(1);
 };
 
 export const isCorrectOrders = (
   pageNumbers: number[],
   rules: number[][]
-): boolean => {
-  return rules.every((r) => _isCorrectOrder(pageNumbers, r));
-};
+): boolean => rules.every((r) => _isCorrectOrder(pageNumbers, r));
