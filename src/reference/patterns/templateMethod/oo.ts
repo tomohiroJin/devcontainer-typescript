@@ -20,7 +20,7 @@ export abstract class CaffeineBeverage {
    * - すべての飲み物で共通な処理
    */
   protected boilWater(): void {
-    console.log("お湯を沸かします");
+    console.log('お湯を沸かします');
   }
 
   /**
@@ -28,7 +28,7 @@ export abstract class CaffeineBeverage {
    * - すべての飲み物で共通な処理
    */
   protected pourInCup(): void {
-    console.log("カップに注ぎます");
+    console.log('カップに注ぎます');
   }
 
   /**
@@ -51,11 +51,11 @@ export abstract class CaffeineBeverage {
  */
 export class Coffee extends CaffeineBeverage {
   protected brew(): void {
-    console.log("コーヒーをドリップします");
+    console.log('コーヒーをドリップします');
   }
 
   protected addCondiments(): void {
-    console.log("砂糖とミルクを追加します");
+    console.log('砂糖とミルクを追加します');
   }
 }
 
@@ -66,10 +66,10 @@ export class Coffee extends CaffeineBeverage {
  */
 export class Tea extends CaffeineBeverage {
   protected brew(): void {
-    console.log("ティーバッグを浸します");
+    console.log('ティーバッグを浸します');
   }
 
   protected addCondiments(): void {
-    console.log("レモンを追加します");
+    console.log('レモンを追加します');
   }
 }

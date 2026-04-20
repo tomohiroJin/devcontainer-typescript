@@ -39,7 +39,7 @@ export interface Subject {
  */
 export class NewsPublisher implements Subject {
   private observers: Observer[] = [];
-  private latestNews: string = "";
+  private latestNews: string = '';
 
   /**
    * Observerを登録します。

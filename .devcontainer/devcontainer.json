@@ -2,8 +2,8 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "Node.js with TypeScript DevContainer",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/typescript-node",
+  // Microsoft 公式 devcontainer image（Node.js 24 LTS / Debian 12 bookworm）
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:24-bookworm",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -22,17 +22,32 @@
         "DavidAnson.vscode-markdownlint",
         "leizongmin.node-module-intellisense",
         "idered.npm",
-        "esbenp.prettier-vscode",
-        "rvest.vs-code-prettier-eslint"
+        "esbenp.prettier-vscode"
       ],
       "settings": {
-        "jestrunner.configPath": "./jest.config.js", // Jest 設定ファイルのパス
-        "jestrunner.jestCommand": "npm run test --", // Jest のコマンド
-        "jestrunner.codeLens": ["run", "watch", "coverage", "debug"]
+        "jestrunner.configPath": "./jest.config.js",
+        "jestrunner.jestCommand": "npm run test --",
+        "jestrunner.codeLens": ["run", "watch", "coverage", "debug"],
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "eslint.useFlatConfig": true,
+        "eslint.validate": ["javascript", "typescript"]
       }
     }
   },
 
-  // Use 'postCreateCommand' to run commands after the container is created.
+  // コンテナ作成後に依存を取得
   "postCreateCommand": "npm install"
 }

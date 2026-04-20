@@ -22,7 +22,7 @@ export interface Beverage {
  */
 export class Coffee implements Beverage {
   public getDescription(): string {
-    return "コーヒー";
+    return 'コーヒー';
   }
 
   public cost(): number {
@@ -36,7 +36,7 @@ export class Coffee implements Beverage {
  */
 export class Espresso implements Beverage {
   public getDescription(): string {
-    return "エスプレッソ";
+    return 'エスプレッソ';
   }
 
   public cost(): number {
@@ -73,7 +73,7 @@ export class MilkDecorator extends BeverageDecorator {
    * 飲み物の説明に "ミルク" を追加します。
    */
   public getDescription(): string {
-    return this.beverage.getDescription() + ", ミルク";
+    return this.beverage.getDescription() + ', ミルク';
   }
 
   /**
@@ -94,7 +94,7 @@ export class SugarDecorator extends BeverageDecorator {
    * 飲み物の説明に "砂糖" を追加します。
    */
   public getDescription(): string {
-    return this.beverage.getDescription() + ", 砂糖";
+    return this.beverage.getDescription() + ', 砂糖';
   }
 
   /**

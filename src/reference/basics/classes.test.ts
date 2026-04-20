@@ -6,8 +6,8 @@
  */
 
 // クラスの基本
-describe("クラスの基本 (Basic Class)", () => {
-  test("クラスの定義とインスタンス化", () => {
+describe('クラスの基本 (Basic Class)', () => {
+  test('クラスの定義とインスタンス化', () => {
     class Person {
       name: string;
       age: number;
@@ -22,16 +22,16 @@ describe("クラスの基本 (Basic Class)", () => {
       }
     }
 
-    const person = new Person("太郎", 25);
-    expect(person.name).toBe("太郎");
+    const person = new Person('太郎', 25);
+    expect(person.name).toBe('太郎');
     expect(person.age).toBe(25);
-    expect(person.greet()).toBe("こんにちは、太郎さん！");
+    expect(person.greet()).toBe('こんにちは、太郎さん！');
   });
 });
 
 // 継承
-describe("クラスの継承 (Class Inheritance)", () => {
-  test("基本的な継承", () => {
+describe('クラスの継承 (Class Inheritance)', () => {
+  test('基本的な継承', () => {
     class Animal {
       name: string;
 
@@ -40,7 +40,7 @@ describe("クラスの継承 (Class Inheritance)", () => {
       }
 
       sound(): string {
-        return "動物の鳴き声";
+        return '動物の鳴き声';
       }
     }
 
@@ -53,20 +53,20 @@ describe("クラスの継承 (Class Inheritance)", () => {
       }
 
       sound(): string {
-        return "ワンワン";
+        return 'ワンワン';
       }
     }
 
-    const dog = new Dog("ポチ", "柴犬");
-    expect(dog.name).toBe("ポチ");
-    expect(dog.breed).toBe("柴犬");
-    expect(dog.sound()).toBe("ワンワン");
+    const dog = new Dog('ポチ', '柴犬');
+    expect(dog.name).toBe('ポチ');
+    expect(dog.breed).toBe('柴犬');
+    expect(dog.sound()).toBe('ワンワン');
   });
 });
 
 // アクセス修飾子
-describe("アクセス修飾子 (Access Modifiers)", () => {
-  test("public, private, protected の例", () => {
+describe('アクセス修飾子 (Access Modifiers)', () => {
+  test('public, private, protected の例', () => {
     class Person {
       public name: string; // どこからでもアクセス可能
       private age: number; // クラス内部からのみアクセス可能
@@ -83,8 +83,8 @@ describe("アクセス修飾子 (Access Modifiers)", () => {
       }
     }
 
-    const person = new Person("花子", 20, "秘密");
-    expect(person.name).toBe("花子");
+    const person = new Person('花子', 20, '秘密');
+    expect(person.name).toBe('花子');
     expect(person.getAge()).toBe(20);
 
     // 以下はコンパイルエラーとなる（コメントアウトで説明）
@@ -94,8 +94,8 @@ describe("アクセス修飾子 (Access Modifiers)", () => {
 });
 
 // 静的メソッドとプロパティ
-describe("静的メソッドとプロパティ (Static Methods and Properties)", () => {
-  test("static メソッドとプロパティ", () => {
+describe('静的メソッドとプロパティ (Static Methods and Properties)', () => {
+  test('static メソッドとプロパティ', () => {
     class MathUtils {
       static PI = 3.14;
 
@@ -110,8 +110,8 @@ describe("静的メソッドとプロパティ (Static Methods and Properties)",
 });
 
 // ゲッターとセッター
-describe("ゲッターとセッター (Getters and Setters)", () => {
-  test("ゲッターとセッターの例", () => {
+describe('ゲッターとセッター (Getters and Setters)', () => {
+  test('ゲッターとセッターの例', () => {
     class Rectangle {
       private _width: number;
       private _height: number;

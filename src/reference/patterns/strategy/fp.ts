@@ -61,7 +61,7 @@ export interface Product {
 export function createProduct(
   name: string,
   price: number,
-  discountFunction: DiscountFunction = noDiscount
+  discountFunction: DiscountFunction = noDiscount,
 ): Product {
   return {
     name,
@@ -88,10 +88,7 @@ export function getDiscountedPrice(product: Product): number {
  * @param newDiscount - 新しい割引関数
  * @returns 割引関数を変更した新しい商品データ
  */
-export function updateDiscountFunction(
-  product: Product,
-  newDiscount: DiscountFunction
-): Product {
+export function updateDiscountFunction(product: Product, newDiscount: DiscountFunction): Product {
   return {
     ...product,
     discountFunction: newDiscount,

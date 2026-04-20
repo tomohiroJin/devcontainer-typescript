@@ -11,16 +11,16 @@ export type Pizza = {
 /**
  * ピザの種類を表す文字列リテラル型です。
  */
-export const PIZZA_TYPES = ["cheese", "pepperoni", "margherita"] as const;
+export const PIZZA_TYPES = ['cheese', 'pepperoni', 'margherita'] as const;
 export type PizzaType = (typeof PIZZA_TYPES)[number];
 
 /**
  * ピザの種類ごとの情報を表すオブジェクトです。
  */
 export const PIZZA_KINDS: Record<PizzaType, Pizza> = {
-  cheese: { name: "チーズピザ", price: 1200 },
-  pepperoni: { name: "ペパロニピザ", price: 1500 },
-  margherita: { name: "マルゲリータピザ", price: 1300 },
+  cheese: { name: 'チーズピザ', price: 1200 },
+  pepperoni: { name: 'ペパロニピザ', price: 1500 },
+  margherita: { name: 'マルゲリータピザ', price: 1300 },
 } as const;
 export type PizzaKind = (typeof PIZZA_KINDS)[PizzaType];
 

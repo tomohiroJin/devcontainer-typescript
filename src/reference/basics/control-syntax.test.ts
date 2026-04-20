@@ -5,45 +5,45 @@
  */
 
 // if 文の例
-describe("条件分岐 (if 文)", () => {
-  test("if 文での条件分岐", () => {
+describe('条件分岐 (if 文)', () => {
+  test('if 文での条件分岐', () => {
     const value = 10;
     let result: string;
 
     if (value > 5) {
-      result = "大きい";
+      result = '大きい';
     } else {
-      result = "小さいか等しい";
+      result = '小さいか等しい';
     }
 
-    expect(result).toBe("大きい");
+    expect(result).toBe('大きい');
   });
 });
 
 // switch 文の例
-describe("条件分岐 (switch 文)", () => {
-  test("switch 文の使用例", () => {
-    const fruit: string = "apple";
+describe('条件分岐 (switch 文)', () => {
+  test('switch 文の使用例', () => {
+    const fruit: string = 'apple';
     let result: string;
 
     switch (fruit) {
-      case "apple":
-        result = "リンゴ";
+      case 'apple':
+        result = 'リンゴ';
         break;
-      case "banana":
-        result = "バナナ";
+      case 'banana':
+        result = 'バナナ';
         break;
       default:
-        result = "不明";
+        result = '不明';
     }
 
-    expect(result).toBe("リンゴ");
+    expect(result).toBe('リンゴ');
   });
 });
 
 // for ループの例
-describe("ループ (for 文)", () => {
-  test("for 文での繰り返し", () => {
+describe('ループ (for 文)', () => {
+  test('for 文での繰り返し', () => {
     const numbers = [1, 2, 3];
     let sum = 0;
 
@@ -56,8 +56,8 @@ describe("ループ (for 文)", () => {
 });
 
 // while ループの例
-describe("ループ (while 文)", () => {
-  test("while 文の使用例", () => {
+describe('ループ (while 文)', () => {
+  test('while 文の使用例', () => {
     let counter = 0;
     let result = 0;
 
@@ -71,8 +71,8 @@ describe("ループ (while 文)", () => {
 });
 
 // for...of 文の例
-describe("ループ (for...of 文)", () => {
-  test("for...of 文での繰り返し", () => {
+describe('ループ (for...of 文)', () => {
+  test('for...of 文での繰り返し', () => {
     const numbers = [10, 20, 30];
     let total = 0;
 
@@ -85,15 +85,15 @@ describe("ループ (for...of 文)", () => {
 });
 
 // for...in 文の例
-describe("ループ (for...in 文)", () => {
-  test("for...in 文での繰り返し", () => {
+describe('ループ (for...in 文)', () => {
+  test('for...in 文での繰り返し', () => {
     const object = { a: 1, b: 2, c: 3 };
-    let keys = "";
+    let keys = '';
 
     for (const key in object) {
       keys += key;
     }
 
-    expect(keys).toBe("abc");
+    expect(keys).toBe('abc');
   });
 });

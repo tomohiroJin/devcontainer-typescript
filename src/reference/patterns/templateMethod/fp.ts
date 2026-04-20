@@ -24,14 +24,14 @@ export function prepareBeverage(steps: BeverageSteps): void {
  * お湯を沸かす (共通ステップ)
  */
 function boilWater(): void {
-  console.log("お湯を沸かします");
+  console.log('お湯を沸かします');
 }
 
 /**
  * カップに注ぐ (共通ステップ)
  */
 function pourInCup(): void {
-  console.log("カップに注ぎます");
+  console.log('カップに注ぎます');
 }
 
 /**
@@ -41,10 +41,10 @@ function pourInCup(): void {
  */
 export const coffeeSteps: BeverageSteps = {
   brew: () => {
-    console.log("コーヒーをドリップします");
+    console.log('コーヒーをドリップします');
   },
   addCondiments: () => {
-    console.log("砂糖とミルクを追加します");
+    console.log('砂糖とミルクを追加します');
   },
 };
 
@@ -55,9 +55,9 @@ export const coffeeSteps: BeverageSteps = {
  */
 export const teaSteps: BeverageSteps = {
   brew: () => {
-    console.log("ティーバッグを浸します");
+    console.log('ティーバッグを浸します');
   },
   addCondiments: () => {
-    console.log("レモンを追加します");
+    console.log('レモンを追加します');
   },
 };
