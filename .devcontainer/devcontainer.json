@@ -48,6 +48,8 @@
     }
   },
 
-  // コンテナ作成後に依存を取得
-  "postCreateCommand": "npm install"
+  // VS Code（および Jest 拡張など）が起動する前に依存を取得しておく。
+  // waitFor のデフォルトが updateContentCommand のため、拡張機能が立ち上がる時点で
+  // node_modules が揃っている状態を保証でき、Codespaces のプレビルドにも取り込まれる。
+  "updateContentCommand": "npm install"
 }
