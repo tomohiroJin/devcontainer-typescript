@@ -14,7 +14,7 @@ export type Beverage = {
  */
 export function createCoffee(): Beverage {
   return {
-    description: "コーヒー",
+    description: 'コーヒー',
     cost: 150,
   };
 }
@@ -25,7 +25,7 @@ export function createCoffee(): Beverage {
  */
 export function createEspresso(): Beverage {
   return {
-    description: "エスプレッソ",
+    description: 'エスプレッソ',
     cost: 200,
   };
 }

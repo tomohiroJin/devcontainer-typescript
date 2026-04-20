@@ -20,7 +20,7 @@ export interface Pizza {
  */
 export class CheesePizza implements Pizza {
   public getName(): string {
-    return "チーズピザ";
+    return 'チーズピザ';
   }
 
   public getPrice(): number {
@@ -33,7 +33,7 @@ export class CheesePizza implements Pizza {
  */
 export class PepperoniPizza implements Pizza {
   public getName(): string {
-    return "ペパロニピザ";
+    return 'ペパロニピザ';
   }
 
   public getPrice(): number {
@@ -46,7 +46,7 @@ export class PepperoniPizza implements Pizza {
  */
 export class MargheritaPizza implements Pizza {
   public getName(): string {
-    return "マルゲリータピザ";
+    return 'マルゲリータピザ';
   }
 
   public getPrice(): number {
@@ -67,11 +67,11 @@ export class PizzaFactory {
    */
   public static createPizza(pizzaType: string): Pizza {
     switch (pizzaType.toLowerCase()) {
-      case "cheese":
+      case 'cheese':
         return new CheesePizza();
-      case "pepperoni":
+      case 'pepperoni':
         return new PepperoniPizza();
-      case "margherita":
+      case 'margherita':
         return new MargheritaPizza();
       default:
         throw new Error(`未知のピザタイプです: ${pizzaType}`);

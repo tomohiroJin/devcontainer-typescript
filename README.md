@@ -5,9 +5,11 @@ Docker コンテナ上で安定した Node.js + TypeScript 環境が用意され
 
 ## 特徴
 
-- **Node.js 環境**：Dev Container 内で Node.js (LTS) を利用できるため、ローカル環境の汚染なしに開発できます。
-- **TypeScript 対応**：`typescript` やサンプルの `tsconfig.json` をあらかじめ用意しています。
-- **VS Code 拡張機能同梱**：`.devcontainer/devcontainer.json` で VS Code の拡張機能がプリインストールされるため、豊富な補完やデバッグ、リンティング体験がコンテナ内で完結します。
+- **Node.js 環境**：Dev Container 内で Node.js 24 LTS を利用します。バージョンは `.devcontainer/devcontainer.json` と `.nvmrc` で固定しているため、ホスト環境を汚さずに再現性の高い開発ができます。
+- **TypeScript 対応**：`typescript` 6 系をローカル依存として明示し、`tsconfig.json` を同梱しています。
+- **テスト**：`jest` 30 系と `ts-jest` を同梱しており、`npm test` ですぐに実行できます。
+- **コード品質**：`eslint` v9（flat config）と `prettier` v3 を同梱しており、保存時に自動整形・自動修正が走ります。
+- **VS Code 拡張機能同梱**：`.devcontainer/devcontainer.json` で VS Code の拡張機能がプリインストールされるため、補完・デバッグ・リンティング体験がコンテナ内で完結します。
 
 ## 必要要件
 
@@ -17,7 +19,7 @@ Docker コンテナ上で安定した Node.js + TypeScript 環境が用意され
 
 ## 開発環境のセットアップ
 
-1. **リポジトリをクローン**  
+1. **リポジトリをクローン**
 
    ```bash
    git clone https://github.com/tomohiroJin/devcontainer-typescript.git
@@ -32,7 +34,7 @@ Docker コンテナ上で安定した Node.js + TypeScript 環境が用意され
 
 ## プロジェクトの利用方法
 
-- **ビルド**：  
+- **ビルド**：
 
   ```bash
   npm run build
@@ -40,19 +42,27 @@ Docker コンテナ上で安定した Node.js + TypeScript 環境が用意され
 
   `dist` ディレクトリにトランスパイル後の JavaScript ファイルが出力されます。
 
-- **テスト**：  
-  テストスクリプトを `package.json` に定義している場合、以下で実行可能です。
+- **テスト**：
 
   ```bash
-  npm test
+  npm test              # 一回だけ実行
+  npm run test:watch    # ファイル変更を監視
+  npm run test:coverage # カバレッジ付き実行
   ```
 
-- **ESLint / Prettier の実行**：  
-  コード整形や静的解析は次のコマンドで可能です（`npm scripts` に応じて調整してください）。
+- **型チェックのみ**：
 
   ```bash
-  npm run lint
-  npm run format
+  npm run typecheck
+  ```
+
+- **ESLint / Prettier の実行**：
+
+  ```bash
+  npm run lint          # 解析
+  npm run lint:fix      # 自動修正
+  npm run format        # 整形
+  npm run format:check  # 整形差分の確認のみ
   ```
 
 ## カスタマイズ
@@ -64,7 +74,7 @@ Docker コンテナ上で安定した Node.js + TypeScript 環境が用意され
   `.devcontainer/devcontainer.json` を編集することで、インストールする拡張機能や Node.js のバージョン、コンテナ設定をカスタマイズできます。
 
 - **ESLint / Prettier のルール調整**：  
-  `.eslintrc.js` や `.prettierrc` ファイルを編集して、コーディング規約や整形ルールをプロジェクトに合わせて変更可能です。
+  `eslint.config.mjs`（flat config）や `.prettierrc.json` を編集して、コーディング規約や整形ルールをプロジェクトに合わせて変更可能です。
 
 ## ライセンス
 
