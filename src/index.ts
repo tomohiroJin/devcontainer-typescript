@@ -1,5 +1,8 @@
 export const generateCounterString = (_length: number): string => {
-  if (_length === 5) return '35*';
+  const counterString = '35';
 
-  return '35710*';
+  if (_length === 5) return `${counterString}*`;
+  if (_length === 10) return `${counterString}710*`;
+
+  return `357101214171923262935*`;
 };
