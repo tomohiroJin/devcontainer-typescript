@@ -1,7 +1,6 @@
-import { add } from './index';
+import { generateCounterString } from './index';
 
-test('add function', () => {
-  expect(add(2, 3)).toBe(5);
-  expect(add(-1, 1)).toBe(0);
-  expect(add(0, 0)).toBe(0);
+test('長さ5のカウンターストリングの結果として35*が返る', () => {
+  const actual = generateCounterString(5);
+  expect(actual).toBe('35*');
 });
