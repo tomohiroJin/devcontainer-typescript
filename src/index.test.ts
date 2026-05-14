@@ -1,4 +1,4 @@
-import { generateCounterString, joinDescendingByTwo } from './index';
+import { generateCounterString, joinDescendingByLength } from './index';
 
 describe('generateCounterString', () => {
   test('長さ5のカウンターストリングの結果として35*が返る', () => {
@@ -17,7 +17,7 @@ describe('generateCounterString', () => {
   });
 });
 
-test('長さ5を与えると35を返す', () => {
-  const actual = joinDescendingByTwo(5);
-  expect(actual).toBe('35');
+test('長さ10を与えると35710を返す', () => {
+  const actual = joinDescendingByLength(10);
+  expect(actual).toBe('35710');
 });

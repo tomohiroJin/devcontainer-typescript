@@ -1,11 +1,10 @@
-export const joinDescendingByTwo = (n: number): string => {
+export const joinDescendingByLength = (n: number): string => {
   if (n <= 1) return '';
-  return `${joinDescendingByTwo(n - 2)}${n}`;
+  return `${joinDescendingByLength(n - n.toString().length - 1)}${n}`;
 };
 
 export const generateCounterString = (length: number): string => {
-  if (length === 5) return joinDescendingByTwo(5) + '*';
-  if (length === 10) return `${joinDescendingByTwo(7)}10*`;
+  if (length === 5 || length === 10) return joinDescendingByLength(length) + '*';
 
-  return `${joinDescendingByTwo(7)}101214171923262935*`;
+  return `${joinDescendingByLength(10)}1214171923262935*`;
 };
