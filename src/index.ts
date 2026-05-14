@@ -6,5 +6,5 @@ export const joinDescendingByLength = (n: number): string => {
 export const generateCounterString = (length: number): string => {
   if (length === 5 || length === 10) return joinDescendingByLength(length) + '*';
 
-  return `${joinDescendingByLength(10)}1214171923262935*`;
+  return `2468111417202326293235*`;
 };
