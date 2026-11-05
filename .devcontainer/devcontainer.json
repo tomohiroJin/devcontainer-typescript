@@ -1,55 +1,13 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-  "name": "Node.js with TypeScript DevContainer",
-  // Microsoft 公式 devcontainer image（Node.js 24 LTS / Debian 12 bookworm）
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:24-bookworm",
+  "name": "TypeScript / Node.js 26 LTS",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "node",
+  "updateContentCommand": "npm ci",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "streetsidesoftware.code-spell-checker",
-        "ms-vsliveshare.vsliveshare",
-        "dbaeumer.vscode-eslint",
-        "GrapeCity.gc-excelviewer",
-        "mhutchie.git-graph",
-        "donjayamanne.githistory",
-        "GitHub.vscode-pull-request-github",
-        "MS-CEINTL.vscode-language-pack-ja",
-        "Orta.vscode-jest",
-        "firsttris.vscode-jest-runner",
-        "yzhang.markdown-all-in-one",
-        "shd101wyy.markdown-preview-enhanced",
-        "DavidAnson.vscode-markdownlint",
-        "leizongmin.node-module-intellisense",
-        "idered.npm",
-        "esbenp.prettier-vscode"
-      ],
-      "settings": {
-        "jestrunner.configPath": "./jest.config.js",
-        "jestrunner.jestCommand": "npm run test --",
-        "jestrunner.codeLens": ["run", "watch", "coverage", "debug"],
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.codeActionsOnSave": {
-          "source.fixAll.eslint": "explicit"
-        },
-        "[typescript]": {
-          "editor.defaultFormatter": "esbenp.prettier-vscode"
-        },
-        "[javascript]": {
-          "editor.defaultFormatter": "esbenp.prettier-vscode"
-        },
-        "[json]": {
-          "editor.defaultFormatter": "esbenp.prettier-vscode"
-        },
-        "eslint.useFlatConfig": true,
-        "eslint.validate": ["javascript", "typescript"]
-      }
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "vitest.explorer"]
     }
-  },
-
-  // VS Code（および Jest 拡張など）が起動する前に依存を取得しておく。
-  // waitFor のデフォルトが updateContentCommand のため、拡張機能が立ち上がる時点で
-  // node_modules が揃っている状態を保証でき、Codespaces のプレビルドにも取り込まれる。
-  "updateContentCommand": "npm install"
+  }
 }

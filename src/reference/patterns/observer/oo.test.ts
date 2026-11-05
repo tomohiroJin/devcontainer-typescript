@@ -1,4 +1,5 @@
-import { NewsPublisher, NewsSubscriber } from './oo';
+import { describe, expect, it } from 'vitest';
+import { NewsPublisher, NewsSubscriber } from './oo.js';
 
 /**
  * Observerパターンのオブジェクト指向実装に関するテストです。

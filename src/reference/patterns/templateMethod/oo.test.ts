@@ -1,4 +1,5 @@
-import { Coffee, Tea } from './oo';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { Coffee, Tea } from './oo.js';
 
 /**
  * テンプレートメソッドパターン(OOP)のテスト
@@ -6,12 +7,12 @@ import { Coffee, Tea } from './oo';
 describe('CaffeineBeverageのテンプレートメソッドテスト', () => {
   beforeEach(() => {
     // すべてのテストで console.log のモックを初期化
-    jest.spyOn(global.console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'log').mockImplementation(() => {});
   });
 
   afterEach(() => {
     // テスト後にモックをクリア
-    (console.log as jest.Mock).mockClear();
+    vi.restoreAllMocks();
   });
 
   it('CoffeeクラスのprepareRecipe()が正しい順序で呼ばれること', () => {

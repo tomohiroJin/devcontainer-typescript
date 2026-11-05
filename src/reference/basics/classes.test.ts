@@ -5,6 +5,8 @@
  * 静的メソッド、ゲッター・セッターの例を含みます。
  */
 
+import { describe, expect, test } from 'vitest';
+
 // クラスの基本
 describe('クラスの基本 (Basic Class)', () => {
   test('クラスの定義とインスタンス化', () => {

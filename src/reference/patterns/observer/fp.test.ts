@@ -1,4 +1,5 @@
-import { createNewsPublisher, createObserver } from './fp';
+import { describe, expect, it } from 'vitest';
+import { createNewsPublisher, createObserver } from './fp.js';
 
 /**
  * Observerパターン(関数型)のテストです。

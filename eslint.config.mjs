@@ -1,21 +1,17 @@
 import js from '@eslint/js';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import prettier from 'eslint-config-prettier/flat';
 import globals from 'globals';
 
-export default tseslint.config(
-  {
-    ignores: ['dist/**', 'coverage/**', 'node_modules/**'],
-  },
+export default defineConfig(
+  globalIgnores(['dist/**', 'coverage/**', 'node_modules/**']),
   js.configs.recommended,
-  ...tseslint.configs.recommended,
+  tseslint.configs.recommended,
   {
     languageOptions: {
-      ecmaVersion: 2024,
-      sourceType: 'module',
       globals: {
         ...globals.node,
-        ...globals.jest,
       },
     },
     rules: {
@@ -23,12 +19,6 @@ export default tseslint.config(
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
       ],
-    },
-  },
-  {
-    files: ['**/*.{js,cjs,mjs}'],
-    languageOptions: {
-      sourceType: 'commonjs',
     },
   },
   prettier,

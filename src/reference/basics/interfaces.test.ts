@@ -5,6 +5,8 @@
  * メソッド、拡張、インデックス型、関数型の例を含みます。
  */
 
+import { describe, expect, test } from 'vitest';
+
 // 基本的なインターフェースの定義
 describe('基本的なインターフェース (Basic Interface)', () => {
   test('インターフェースの定義と使用', () => {

@@ -4,6 +4,8 @@
  * このテストでは、基本型、ユニオン型、リテラル型、タプル、ジェネリクスについて説明とテストを行います。
  */
 
+import { describe, expect, test } from 'vitest';
+
 // 定数宣言と変数宣言
 describe('定数宣言と変数宣言 (Const and Let)', () => {
   test('const の例', () => {
@@ -13,6 +15,7 @@ describe('定数宣言と変数宣言 (Const and Let)', () => {
 
   test('let の例', () => {
     let age: number = 25;
+    expect(age).toBe(25);
     age = 26; // 再代入可能
     expect(age).toBe(26);
   });
