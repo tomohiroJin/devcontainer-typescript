@@ -1,4 +1,5 @@
-import { PizzaFactory, CheesePizza, PepperoniPizza, MargheritaPizza } from './oo';
+import { describe, expect, it } from 'vitest';
+import { PizzaFactory, CheesePizza, PepperoniPizza, MargheritaPizza } from './oo.js';
 
 /**
  * ファクトリーパターン(OOP)でピザを生成するテストです。

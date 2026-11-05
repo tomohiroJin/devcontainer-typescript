@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import {
   createProduct,
   noDiscount,
@@ -5,7 +6,7 @@ import {
   seasonalDiscount,
   bulkDiscount,
   updateDiscountFunction,
-} from './fp';
+} from './fp.js';
 
 /**
  * 商品データと割引関数の組み合わせに関するテストです。

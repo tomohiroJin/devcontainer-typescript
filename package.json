@@ -2,30 +2,37 @@
   "name": "devcontainer-typescript",
   "private": true,
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=26.13.0 <27",
+    "npm": ">=11.20.0 <12"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test:coverage && npm run build",
+    "clean": "node --input-type=module -e \"import { rmSync } from 'node:fs'; rmSync('dist', { recursive: true, force: true });\""
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "@types/jest": "^30.0.0",
-    "@types/node": "^24.0.0",
-    "eslint": "^9.39.4",
-    "eslint-config-prettier": "^10.0.0",
-    "globals": "^17.5.0",
-    "jest": "^30.2.0",
-    "prettier": "^3.8.3",
-    "ts-jest": "^29.4.9",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.0.0"
+    "@eslint/js": "10.0.1",
+    "@types/node": "26.6.6",
+    "@vitest/coverage-v8": "5.1.0",
+    "eslint": "10.14.0",
+    "eslint-config-prettier": "10.1.8",
+    "globals": "17.14.0",
+    "prettier": "3.9.10",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.1",
+    "vitest": "5.1.0"
+  },
+  "type": "module",
+  "packageManager": "npm@11.20.0",
+  "overrides": {
+    "minimatch": "11.0.4"
   }
 }

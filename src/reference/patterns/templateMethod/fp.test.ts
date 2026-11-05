@@ -1,15 +1,16 @@
-import { prepareBeverage, coffeeSteps, teaSteps } from './fp';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { prepareBeverage, coffeeSteps, teaSteps } from './fp.js';
 
 /**
  * テンプレートメソッドパターン(fp)のテスト
  */
 describe('テンプレートメソッドパターン(関数型)のテスト', () => {
   beforeEach(() => {
-    jest.spyOn(global.console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'log').mockImplementation(() => {});
   });
 
   afterEach(() => {
-    (console.log as jest.Mock).mockClear();
+    vi.restoreAllMocks();
   });
 
   it('coffeeSteps で呼び出した場合の出力順序が正しいこと', () => {

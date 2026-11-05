@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 /**
  * interfaces.test.ts
  * TypeScriptのインターフェースに関する基本的な例を含むテスト。

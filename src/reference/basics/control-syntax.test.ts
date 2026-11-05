@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 /**
  * control-structures.test.ts
  * TypeScriptの制御構文とループ文に関する基本的な例を含むテスト。

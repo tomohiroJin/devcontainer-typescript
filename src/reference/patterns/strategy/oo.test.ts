@@ -1,4 +1,10 @@
-import { Product, NoDiscountStrategy, SeasonalDiscountStrategy, BulkDiscountStrategy } from './oo';
+import { describe, expect, it } from 'vitest';
+import {
+  Product,
+  NoDiscountStrategy,
+  SeasonalDiscountStrategy,
+  BulkDiscountStrategy,
+} from './oo.js';
 
 /**
  * Product クラスのテストです。

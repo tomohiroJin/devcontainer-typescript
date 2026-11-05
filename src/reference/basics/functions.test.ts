@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 /**
  * functions.test.ts
  * TypeScriptの関数に関する基本的な例を含むテスト。

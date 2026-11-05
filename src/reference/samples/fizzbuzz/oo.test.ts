@@ -1,4 +1,5 @@
-import { FizzBuzz } from './oo';
+import { describe, expect, test } from 'vitest';
+import { FizzBuzz } from './oo.js';
 
 describe('FizzBuzz', () => {
   test('数字を受け取り、その数を文字列で返す', () => {

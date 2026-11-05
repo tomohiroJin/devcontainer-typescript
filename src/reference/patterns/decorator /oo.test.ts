@@ -1,4 +1,5 @@
-import { Coffee, Espresso, MilkDecorator, SugarDecorator } from './oo';
+import { describe, expect, it } from 'vitest';
+import { Coffee, Espresso, MilkDecorator, SugarDecorator } from './oo.js';
 
 /**
  * デコレーターパターン(OOP)のテストです。

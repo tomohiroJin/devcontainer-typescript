@@ -1,4 +1,5 @@
-import { fizzBuzz } from './fp';
+import { describe, expect, test } from 'vitest';
+import { fizzBuzz } from './fp.js';
 
 describe('fizzBuzz', () => {
   test('数を受け取り、その数を文字列で返す', () => {

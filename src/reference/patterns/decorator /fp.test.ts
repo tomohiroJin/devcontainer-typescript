@@ -1,4 +1,5 @@
-import { addMilk, addSugar, createCoffee, createEspresso } from './fp';
+import { describe, expect, it } from 'vitest';
+import { addMilk, addSugar, createCoffee, createEspresso } from './fp.js';
 
 /**
  * デコレーターパターン(関数型)のテストです。

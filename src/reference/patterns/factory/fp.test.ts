@@ -1,4 +1,5 @@
-import { createPizza } from './fp';
+import { describe, expect, it } from 'vitest';
+import { createPizza } from './fp.js';
 
 /**
  * ファクトリーパターン(関数型)のテストコードです。

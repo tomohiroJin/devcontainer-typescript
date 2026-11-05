@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 /**
  * classes.test.ts
  * TypeScriptのクラスに関する基本的な例を含むテスト。
