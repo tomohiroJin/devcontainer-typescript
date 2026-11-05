@@ -5,7 +5,6 @@
   },
   "remoteUser": "node",
   "updateContentCommand": "npm ci",
-  "waitFor": "updateContentCommand",
   "customizations": {
     "vscode": {
       "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "vitest.explorer"]

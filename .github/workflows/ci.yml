@@ -34,3 +34,19 @@ jobs:
           path: coverage/
           if-no-files-found: error
           retention-days: 7
+
+  devcontainer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: devcontainers/ci@513af61f4de4f75d37e4438f184ba4358f0fc1ca # v0.3
+        with:
+          push: never
+          runCmd: |
+            set -eu
+            npm run check
+            npm run check:runtime -- --headers
+            npm audit --audit-level=low

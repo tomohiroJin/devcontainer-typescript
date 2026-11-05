@@ -1,10 +1,11 @@
-import { describe, expect, test } from 'vitest';
 /**
  * classes.test.ts
  * TypeScriptのクラスに関する基本的な例を含むテスト。
  * このテストでは、クラスの基本構造、コンストラクタ、プロパティとメソッド、継承、アクセス修飾子、
  * 静的メソッド、ゲッター・セッターの例を含みます。
  */
+
+import { describe, expect, test } from 'vitest';
 
 // クラスの基本
 describe('クラスの基本 (Basic Class)', () => {

@@ -1,9 +1,10 @@
-import { describe, expect, test } from 'vitest';
 /**
  * control-structures.test.ts
  * TypeScriptの制御構文とループ文に関する基本的な例を含むテスト。
  * このテストでは、if文、switch文、forループ、whileループ、for...of、for...inなどの構文を説明とテストを行います。
  */
+
+import { describe, expect, test } from 'vitest';
 
 // if 文の例
 describe('条件分岐 (if 文)', () => {

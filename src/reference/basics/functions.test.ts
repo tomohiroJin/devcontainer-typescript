@@ -1,9 +1,10 @@
-import { describe, expect, test } from 'vitest';
 /**
  * functions.test.ts
  * TypeScriptの関数に関する基本的な例を含むテスト。
  * このテストでは、関数宣言、アロー関数、`this` のスコープの違いについて説明とテストを行います。
  */
+
+import { describe, expect, test } from 'vitest';
 
 // 関数宣言
 describe('関数宣言 (Function Declaration)', () => {

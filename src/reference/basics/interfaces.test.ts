@@ -1,10 +1,11 @@
-import { describe, expect, test } from 'vitest';
 /**
  * interfaces.test.ts
  * TypeScriptのインターフェースに関する基本的な例を含むテスト。
  * このテストでは、基本的なインターフェースの定義、必須プロパティとオプショナルプロパティ、
  * メソッド、拡張、インデックス型、関数型の例を含みます。
  */
+
+import { describe, expect, test } from 'vitest';
 
 // 基本的なインターフェースの定義
 describe('基本的なインターフェース (Basic Interface)', () => {

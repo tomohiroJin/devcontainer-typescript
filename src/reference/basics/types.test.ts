@@ -1,9 +1,10 @@
-import { describe, expect, test } from 'vitest';
 /**
  * types.test.ts
  * TypeScriptの型に関する基本的な例を含むテスト。
  * このテストでは、基本型、ユニオン型、リテラル型、タプル、ジェネリクスについて説明とテストを行います。
  */
+
+import { describe, expect, test } from 'vitest';
 
 // 定数宣言と変数宣言
 describe('定数宣言と変数宣言 (Const and Let)', () => {

@@ -21,7 +21,7 @@ Node.js・TypeScript のサンプルと、VS Code / Dev Container で共通に�
 
 ### VS Code / Dev Container
 
-1. Docker とVS Code **1.145.0 以降の安定版**（2026-11-05時点の最新版）、Microsoft の **Dev Containers** 拡張（`ms-vscode-remote.remote-containers`）を導入します。
+1. Docker と VS Code **1.145.0 以降の安定版**（2026-11-05時点の最新版）、Microsoft の **Dev Containers** 拡張（`ms-vscode-remote.remote-containers`）を導入します。
 2. リポジトリをクローンして VS Code で開きます。
 3. コマンドパレットから **Dev Containers: Reopen in Container** を実行します。
 4. `updateContentCommand` の `npm ci` が完了してから、拡張が利用可能になります。
@@ -43,7 +43,7 @@ npm ci
 npm run check
 ```
 
-Node.js 26.13.0 に同梱の npm 11.20.0 を基準とします。npm のメジャーを変更済みなら `npm install --global npm@11.20.0` で揃えてください。`.npmrc` の `engine-strict` により、対象外の Node.js / npm ではインストールに失敗します。クラウド環境では既存のチェックアウトを利用し、公開済みの古い Node.js 24 向けセットアップ手順はこの手順へ更新してください。
+Node.js 26.13.0 に同梱の npm 11.20.0 を基準とします。npm のメジャーを変更済みなら `npm install --global npm@11.20.0` で揃えてください。`.npmrc` の `engine-strict` により、対象外の Node.js では通常のインストールに失敗します。npm は `packageManager` で指定し、`npm run check:runtime` と CI でバージョンの一致を検証します。クラウド環境でも、同じ Node.js / npm とロックファイルを使ってセットアップできます。
 
 ## 開発コマンド
 
@@ -58,9 +58,12 @@ npm run lint
 npm run lint:fix
 npm run format
 npm run format:check
-npm run check         # 型・Lint・整形・テスト/カバレッジ・ビルド
+npm run check:runtime # .nvmrc / packageManager と実行環境の一致を確認
+npm run check         # 実行環境・型・Lint・整形・テスト/カバレッジ・ビルド
 npm audit             # 開発依存を含む監査
 ```
+
+TypeScript は `npm run typecheck` または `npx tsc` で実行してください。コンテナには別バージョンのグローバル `tsc` も含まれるため、`tsc` の直接実行は避けます。
 
 カバレッジの最低値は statements / branches / functions / lines 各90%です。Jest から移行しているため、`--runInBand` などの Jest 固有オプションは使いません。
 
@@ -82,7 +85,8 @@ GUI のテスト検出・ブレークポイント停止等の確認手順と未�
 ## 依存関係とセキュリティの保守
 
 - `package.json` と `package-lock.json` は一緒に更新・コミットします。通常の導入は `npm ci`、意図した更新時だけ `npm install` を使います。
-- Dependabot は npm / GitHub Actions / Dev Containers を週次確認します。Vitest と coverage provider、ESLint 関連をまとめて更新します。
+- Dependabot は npm / GitHub Actions / Dockerfile を週次確認します。Vitest と coverage provider、ESLint 関連をまとめて更新します。
+- CI はホスト側のチェックに加え、Dev Container のビルド・非 root 実行・Node.js 本体/ヘッダー/npm の整合性も検証します。Dockerfile のイメージ更新で `.nvmrc` 等とバージョンがずれた場合は CI が失敗するため、関連設定を同じ PR で更新してください。
 - 更新 PR では公式の互換性表を確認し、`npm ci && npm run check && npm audit` を実行します。Node.js の変更時は `.nvmrc`・`engines`・`@types/node`・コンテナ・README の整合性も確認します。
 - npm の `overrides` は minimatch の脆弱性修正用です。上流が修正版へ対応したら削除して再検証します。詳細は [脆弱性対応](docs/toolchain.md#脆弱性対応) を参照してください。
 - GitHub の Dependabot alerts / security updates はリポジトリ設定で有効化してください。設定ファイルの追加だけでは有効化を保証しません。
