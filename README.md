@@ -45,6 +45,8 @@ npm run check
 
 Node.js 26.13.0 に同梱の npm 11.20.0 を基準とします。npm のメジャーを変更済みなら `npm install --global npm@11.20.0` で揃えてください。`.npmrc` の `engine-strict` により、対象外の Node.js では通常のインストールに失敗します。npm は `packageManager` で指定し、`npm run check:runtime` と CI でバージョンの一致を検証します。クラウド環境でも、同じ Node.js / npm とロックファイルを使ってセットアップできます。
 
+`engines.node` の `>=26.13.0 <27` は依存導入を許容する範囲です。一方、再現性を確保するため、`npm run check` は **Node.js が `.nvmrc` とパッチまで完全一致し、npm が `packageManager` と完全一致すること**を要求します。たとえば Node.js 26.14.0 では `npm ci` が通っても `npm run check` は失敗します。開発時は `nvm use` で指定版へ揃え、採用バージョンを更新するときは関連設定をまとめて変更してください。
+
 ## 開発コマンド
 
 ```bash
@@ -87,6 +89,8 @@ GUI のテスト検出・ブレークポイント停止等の確認手順と未�
 - `package.json` と `package-lock.json` は一緒に更新・コミットします。通常の導入は `npm ci`、意図した更新時だけ `npm install` を使います。
 - Dependabot は npm / GitHub Actions / Dockerfile を週次確認します。Vitest と coverage provider、ESLint 関連をまとめて更新します。
 - CI はホスト側のチェックに加え、Dev Container のビルド・非 root 実行・Node.js 本体/ヘッダー/npm の整合性も検証します。Dockerfile のイメージ更新で `.nvmrc` 等とバージョンがずれた場合は CI が失敗するため、関連設定を同じ PR で更新してください。
+- Dependabot は Node.js イメージと `.nvmrc` を同時には更新しません。Node.js イメージ更新 PR では、必要に応じて `.nvmrc`・`packageManager`・関連設定を手動で揃え、CI が成功してからマージします。digest だけの更新など、実行バージョンが変わらなければ整合性チェックは通ります。
+- Node.js イメージの更新時は `/usr/local/` のファイル構成・権限・シンボリックリンクの変更も確認します。配布物全体をコピーして本体・ヘッダー・npm を揃えていますが、将来追加されるファイルによる開発ツールへの影響を CI だけですべて検出できるとは限りません。
 - 更新 PR では公式の互換性表を確認し、`npm ci && npm run check && npm audit` を実行します。Node.js の変更時は `.nvmrc`・`engines`・`@types/node`・コンテナ・README の整合性も確認します。
 - npm の `overrides` は minimatch の脆弱性修正用です。上流が修正版へ対応したら削除して再検証します。詳細は [脆弱性対応](docs/toolchain.md#脆弱性対応) を参照してください。
 - GitHub の Dependabot alerts / security updates はリポジトリ設定で有効化してください。設定ファイルの追加だけでは有効化を保証しません。
